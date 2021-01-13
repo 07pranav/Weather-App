@@ -5,6 +5,8 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+    // for heroku, 1st statement is for heroku. if it does not run on heroku then it will run on locaalhost 3000
+const port = process.env.PORT || 3000
 
 //Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -112,6 +114,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(8080, () => {
-    console.log('Server is up on port 8080.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
